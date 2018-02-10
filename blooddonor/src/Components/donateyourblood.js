@@ -7,7 +7,7 @@ class Donateblood extends Component {
   }
 
   createusercall(){
-    postdata();
+    createuser();
   }
   render(){
     var styling={

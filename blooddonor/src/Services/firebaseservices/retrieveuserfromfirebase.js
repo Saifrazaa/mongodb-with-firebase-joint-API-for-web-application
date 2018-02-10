@@ -14,10 +14,13 @@ let getdatafirebase=()=>{
         donorsdetail.innerHTML="";
         var ref=firebase.database().ref("users").child("A");
         ref.on('child_added',getresponse);
-        donorsdetail.innerHTML="<th>Username</th><th>Email</th><th>Blood Group</th><th>Address</th><th>Phone No</th>";
         function  getresponse(response)
         {
         var object=response.val();
+        var check=[];
+        check.push(object);
+        console.log(check);
+        
         var username=object.username;
         var email=object.email;
         var bloodgroup=object.bloodgroup;
@@ -27,6 +30,7 @@ let getdatafirebase=()=>{
         donorsdetail.innerHTML+="<tr><td>"+username+"</td><td>"+email+"</td><td>"+bloodgroup+"</td><td>"+phoneno+"</td><td>"+address+"</td></tr>";
 
         }
+       
       }
 
       else if(bloodgroup==="B")
@@ -34,7 +38,6 @@ let getdatafirebase=()=>{
         donorsdetail.innerHTML="";
         var ref=firebase.database().ref("users").child("B");
         ref.on('child_added',getresponse);
-        donorsdetail.innerHTML="<th>Username</th><th>Email</th><th>Blood Group</th><th>Address</th><th>Phone No</th>";
 
         function  getresponse(response){
         var object=response.val();
@@ -49,39 +52,43 @@ let getdatafirebase=()=>{
     }
       else if(bloodgroup==="O")
       {
+        
         donorsdetail.innerHTML="";
         var ref=firebase.database().ref("users").child("O");
         ref.on('child_added',getresponse);
-        donorsdetail.innerHTML="<th>Username</th><th>Email</th><th>Blood Group</th><th>Address</th><th>Phone No</th>";
-        
-        function  getresponse(response){
-        var object=response.val();
-        var username=object.username;
-        var email=object.email;
-        var bloodgroup=object.bloodgroup;
-        var phoneno=object.phoneno;
-        var address=object.address;
-        pleasewait.innerHTML="";
-        donorsdetail.innerHTML+="<tr><td>"+username+"</td><td>"+email+"</td><td>"+bloodgroup+"</td><td>"+phoneno+"</td><td>"+address+"</td></tr>";
+
+        function  getresponse(response)
+        {
+          
+                  var object=response.val();
+                  var name=object.username;
+                  var email=object.email;
+                  var bloodgroup=object.bloodgroup;
+                  var phoneno=object.phoneno;
+                  var address=object.address;
+                  pleasewait.innerHTML="";
+                  donorsdetail.innerHTML+="<tr><td>"+name+"</td><td>"+email+"</td><td>"+bloodgroup+"</td><td>"+phoneno+"</td><td>"+address+"</td></tr>";
+       
         }
+     
       }
       else if(bloodgroup==="AB")
       {
+     
         donorsdetail.innerHTML="";
         var ref=firebase.database().ref("users").child("AB");
         ref.on('child_added',getresponse);
-        donorsdetail.innerHTML="<th>Username</th><th>Email</th><th>Blood Group</th><th>Address</th><th>Phone No</th>";
-        
+
         function  getresponse(response){
         var object=response.val();
-        var username=object.username;
+        var name=object.username;
         var email=object.email;
         var bloodgroup=object.bloodgroup;
         var phoneno=object.phoneno;
         var address=object.address;
         pleasewait.innerHTML="";
-        donorsdetail.innerHTML+="<tr><td>"+username+"</td><td>"+email+"</td><td>"+bloodgroup+"</td><td>"+phoneno+"</td><td>"+address+"</td></tr>";
-        }
+        donorsdetail.innerHTML+="<tr><td>"+name+"</td><td>"+email+"</td><td>"+bloodgroup+"</td><td>"+phoneno+"</td><td>"+address+"</td></tr>";
+      }
       }
     }
 
