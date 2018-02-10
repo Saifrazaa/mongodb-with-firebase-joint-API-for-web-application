@@ -1,32 +1,21 @@
 import React,{Component} from "react";
-import savedata from "../Services/retrieveuserfromfirebase";
-import firebase from "../Config/firebase";
+import getdatafirebase from "../Services/firebaseservices/retrieveuserfromfirebase";
+import getdata from "../Services/mongoapi/getdata";
 class Finddonors extends Component {
   constructor()
   {
     super();
-    this.state={
-      response:''
-    }
+    
   }
-  componentDidMount(){
-    this.callapi().then(res=>this.setState({response:res.express})).catch(err=>console.log(err))
-  }
-  callapi=async()=>{
-    const response=fetch("/api");
-    const body=response.json();
-    if(response.status!==200) throw Error(body.message);
-    return body;
-  };
   userdata()
   {
-      savedata();
+      getdatafirebase();
   }
   render(){
     return (
       <div>
           <center >
-          <h1>{this.state.response}</h1>
+          
             <h4 style={{marginTop:"30px"}} className="alert alert-info">What is Your Blood Group</h4>
             <hr />
             <select id="bloodgroup" className="form-control" style={{width:"400px",marginTop:"30px"}}>

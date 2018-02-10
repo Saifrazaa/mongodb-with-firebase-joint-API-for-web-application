@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import firebase from "../Config/firebase";
+import firebase from "../Services/firebaseservices/firebase";
 import { browserHistory } from "react-router";
 import {Redirect,BrowserRouter as Router} from "react-router-dom";
 class Signup extends Component {

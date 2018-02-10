@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import firebase from "../Config/firebase";
+import firebase from "../Services/firebaseservices/firebase";
 class Login extends Component {
   userlogin(){
     var pleasewait=document.getElementById('pleasewait');

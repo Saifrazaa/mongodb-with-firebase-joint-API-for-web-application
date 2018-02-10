@@ -1,9 +1,8 @@
 import React,{Component} from "react";
-import firebase from "../Config/firebase";
+import firebase from "../Services/firebaseservices/firebase";
 import Login from "./login";
 import Donateblood from "./donateyourblood";
 import Map from "./map";
-import Getdonors from "../Services/mongodb";
 import {
   BrowserRouter as Router,
   Link ,
@@ -27,7 +26,6 @@ class Home extends Component {
     return (
       <Router>
         <div>
-          <h1><Getdonors /></h1>
           <center style={styling}><h1>Welcome to Blood Donors Location Tracking Application</h1>
             <hr />
             <br />
